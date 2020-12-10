@@ -1,0 +1,19 @@
+import cv2 as cv
+import sys
+import numpy as np
+import time
+while True:
+    img = cv.imread("stuff.jpg")
+    imgBest = cv.imread("h.jpg")
+    for i in np.linspace(0,1,100):
+        a = i
+        b = 1 - a
+        dsta = cv.addWeighted(img,a,imgBest,b,0)
+        cv.imshow("stuff",dsta)
+        time.sleep(.02)
+        k = cv.waitKey(1) 
+        if k == ord("h"):
+            break
+    x = cv.waitKey(0)
+    if x == ord("q"):
+        break
