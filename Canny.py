@@ -14,7 +14,8 @@ while True:
         break
     rows, cols, channels = frame.shape
 
-    frame = cv.add(frame, cv.cvtColor(cv.Canny(frame,100,200),cv.COLOR_GRAY2BGR))
+    frame = cv.add(frame, cv.cvtColor(cv.Canny(frame,rows/5,cols/5),cv.COLOR_GRAY2BGR))
+    frame = cv.flip(frame, 1)
     cv.imshow('Window Camera', frame)
 
     k = cv.waitKey(1)
